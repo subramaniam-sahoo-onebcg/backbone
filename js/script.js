@@ -1,17 +1,20 @@
-  $(function() {
-
-    var ListView = Backbone.View.extend({
-      el: $('body'),
+  (function($) {
+    
+    var Photo = Backbone.Model.extend({
+      defaults: {'imgsrc': 'test.jpg'},
       initialize: function() {
-        this.render();
+      
+        this.on('change', function() {
+         
+          console.log( this.get('imgsrc'));
+        });
 
       },
-      render: function() {
-        $(this.el).append('<h2>Hello world</h2>');
+      changeSrc: function(source) {
+        this.set('imgsrc', source);
       }
     });
 
-    listView = new ListView();
-    
-  }); 
-  
+    var photo = new Photo;
+    photo.changeSrc('testsss.jpg');
+  })(jQuery);
