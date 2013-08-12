@@ -12,6 +12,7 @@
     <script src="js/backbone.js"></script>
 
     <script src="js/script.js"></script>
+    
     <script type="text/template" id="search_template">
       <label>Search</label>
       <input type="text" id="search_input" />
@@ -21,19 +22,16 @@
     <div id="search_container"></div>
 
     <script type="text/javascript">
-      SearchView = Backbone.View.extend({
-      initialize: function(){
-      this.render();
-      },
-      render: function(){
-      // Compile the template using underscore
-      var template = _.template( $("#search_template").html(), {} );
-      // Load the compiled HTML into the Backbone "el"
-      this.$el.html( template );
-      }
+      var SearchView = Backbone.View.extend({
+        initialize:function(){
+        this.render();
+        },
+        render:function(){
+        var template = _.template($('#search_template').html(), {});
+        this.$el.html(template);
+        }
       });
-
-      var search_view = new SearchView({ el: $("#search_container") });
+       var search_view = new SearchView({ el: $("#search_container") });
     </script>
   </body>
 </html>
