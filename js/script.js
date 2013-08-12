@@ -1,6 +1,7 @@
   (function($) {
 
     var Photo = Backbone.Model.extend({
+      urlRoot: 'test',
       //defaults: {'imgsrc': 'test.jpg', 'title': 'test title'},
       validate: function(attributes) {
         if (attributes.title === undefined)
@@ -19,7 +20,14 @@
       }
     });
 
-    var photo = new Photo;
-    photo.set({imgsrc: 'testsss.jpg'}, {validate: true});
-
+    var photoObj = new Photo;
+    
+   // photo = {imgsrc: 'testsss.jpg',title:'title'};
+    photo = {id:1};
+    photoObj.save(photo, {
+      success: function(photo) {
+        consolr.log(photo.toJSON());
+      }
+    });
+    
   })(jQuery);
