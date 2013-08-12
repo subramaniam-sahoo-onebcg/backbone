@@ -5,16 +5,14 @@
 
   </head>
   <body>
-
-
     <script src="js/jquery.min.js"></script>
     <script src="js/underscore.js"></script>
     <script src="js/backbone.js"></script>
 
     <script src="js/script.js"></script>
-    
+
     <script type="text/template" id="search_template">
-      <label>Search</label>
+      <label><%= search_lable%></label>
       <input type="text" id="search_input" />
       <input type="button" id="search_button" value="Search" />
     </script>
@@ -23,15 +21,17 @@
 
     <script type="text/javascript">
       var SearchView = Backbone.View.extend({
-        initialize:function(){
-        this.render();
-        },
-        render:function(){
-        var template = _.template($('#search_template').html(), {});
-        this.$el.html(template);
-        }
+      initialize:function(){
+      this.render();
+      },
+      render:function(){
+      var template = _.template($('#search_template').html(), {search_lable:'hi'});
+      this.$el.html(template);
+      },
+      events:{"click input[type=button]": "doSearch"},
+      doSearch:function(event){alert('sss')}
       });
-       var search_view = new SearchView({ el: $("#search_container") });
+      var search_view = new SearchView({ el: $("#search_container") });
     </script>
   </body>
 </html>
