@@ -1,33 +1,16 @@
-  (function($) {
-
-    var Photo = Backbone.Model.extend({
-      urlRoot: 'test',
-      //defaults: {'imgsrc': 'test.jpg', 'title': 'test title'},
-      validate: function(attributes) {
-        if (attributes.title === undefined)
-          return "Title blannk error";
-      },
-      initialize: function() {
-        this.on('change:imgsrc', function() {
-          // console.log(this.get('imgsrc') + ' changes');
-        });
-        this.on('invalid', function(model, error) {
-          console.log(error);
-        });
-      },
-      changeSrc: function(source) {
-        this.set('imgsrc', source);
-      }
+  (function($) { var AppRouter = Backbone.Router.extend({
+        routes: {
+            "*actions": "defaultRoute" // matches http://example.com/#anything-here
+        }
     });
+    // Initiate the router
+    var app_router = new AppRouter;
 
-    var photoObj = new Photo({id:1,title:'Title'});
-    
-   // photo = {imgsrc: 'testsss.jpg',title:'title'};
-   // photo = {id:1};
-    photoObj.save( {
-      success: function(photo) {
-        console.log(photo.toJSON());
-      }
-    });
+    app_router.on('route:defaultRoute', function(actions) {
+        alert(actions);
+    })
+
+    // Start Backbone history a necessary step for bookmarkable URL's
+    Backbone.history.start();
     
   })(jQuery);

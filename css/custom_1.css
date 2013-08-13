@@ -1,0 +1,23 @@
+body{
+  margin: 0;
+  padding:0;
+}
+#header{
+  height: 80px;
+  background:#eee;
+  border-top:3px solid #930909;
+  border-bottom:1px solid #c1c1c1;
+}
+#innerheader{
+  margin-left: auto;
+  margin-right: auto;
+  width: 1170px;
+}
+#logo{  
+  float:left;
+  margin-top: 12px;
+  margin-bottom: 16px;
+}
+#footer{
+  
+}
