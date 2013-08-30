@@ -2,36 +2,29 @@
   <head>
     <title>Backbone</title>
     <link href="css/style.css" rel="stylesheet" />
-
+    
   </head>
   <body>
+ <button id="clk">test</button>
+ <button id="clk1">test</button>
+           <form id="main" method="post" action="submit.php">
+            <h1>My Services</h1>
+
+            <ul id="services">
+                <!-- The services will be inserted here -->
+            </ul>
+
+            <p id="total">total: <span>$0</span></p>
+
+            <input type="submit" id="order" value="Order" />
+
+        </form>
+    
+   
     <script src="js/jquery.min.js"></script>
-    <script src="js/underscore.js"></script>
-    <script src="js/backbone.js"></script>
-
-    <script src="js/script.js"></script>
-
-    <script type="text/template" id="search_template">
-      <label>{search_lable}</label>
-      <input type="text" id="search_input" />
-      <input type="button" id="search_button" value="Search" />
-    </script>
-
-    <div id="search_container"></div>
-
-    <script type="text/javascript">
-      var SearchView = Backbone.View.extend({
-      initialize:function(){
-      this.render();
-      },
-      render:function(){
-      var template = _.template($('#search_template').html(), {search_lable:'hi'});
-      this.$el.html(template);
-      },
-      events:{"click input[type=button]": "doSearch"},
-      doSearch:function(event){alert(event)}
-      });
-      var search_view = new SearchView({ el: $("#search_container") });
-    </script>
+     <script src="js/underscore.js"></script>
+<script src="js/backbone.js"></script>
+   
+     <script src="js/script.js"></script>
   </body>
 </html>
